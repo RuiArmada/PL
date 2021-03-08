@@ -30,5 +30,17 @@ def ipAdress():
         print(line,end="")
     file.close()
 
+#Problem 3
+def latLong():
+    file = open("../Ficheiros/Coords.txt" , "r")
+    
+    print("----------------Match Initiating------------------")
 
-
+    for line in file:
+        c = re.search(r'^\(((\+|\-)?(([0-8][0-9](\.[0-9]+)?)|90(\.0+)?)), ((\+|\-)?((1[0-7][0-9](\.[0-9]+)?)|180(\.0+)?))\)$', line)
+        if c:
+            print("VALID")
+        else:
+            print("INVALID")
+    file.close()
+    print("----------------Match Finalizing------------------")
