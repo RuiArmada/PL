@@ -32,3 +32,4 @@ for line in sys.stdin:
     parser.parse(line)
     if parser.success:
         print('Parsing Completed.')
+        

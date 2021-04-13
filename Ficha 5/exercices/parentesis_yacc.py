@@ -4,7 +4,7 @@ from parentesis_lex import tokens
 
 def p_grammar(p):
     """
-    
+
     language : list_parentesis
             
     list_parentesis : parentesis list_parentesis
@@ -22,4 +22,4 @@ parser = yacc.yacc()
 import sys
 
 for line in sys.stdin:
-    parser.parse(line)
+    parser.parse(line) 
