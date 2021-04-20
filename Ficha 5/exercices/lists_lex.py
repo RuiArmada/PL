@@ -1,21 +1,18 @@
-import ply.tex as lex
+import ply.lex as lex
 
-tokens = [
+tokens = (
     'ID',
     'NUM',
     'PE',
     'PD',
     'VIRG'
-]
+)
 
 t_ID = r'\w+'
 t_PE = r'\('
 t_PD = r'\)'
 t_VIRG = r','
 
-def t_ID(t):
-    r'\w+'
-    return t
 
 def t_NUM(t):
     r'\d+'
@@ -25,7 +22,7 @@ def t_NUM(t):
 t_ignore = '\n\t'
 
 def t_error(t):
-    print('Illegal Character: ' + t.value[0])
-    t.lexer.skip(1)
+    print(f"Illegal character '{t.value[0]}'")
 
-lexer = lex.lex() 
+lexer = lex.lex()
+

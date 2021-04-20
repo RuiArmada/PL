@@ -23,7 +23,7 @@ def alienUsername():
 #Problem 2
 def ipAdress():
     file = open("../Files/Ip.txt" , "r")
-    
+
     for line in file:
         y = re.search(r'((2[0-4][0-9]|25[0-5]|1[0-9][0-9]|[1-9][0-9])\.){3}(2[0-4][0-9]|25[0-5]|1[0-9][0-9]|[1-9][0-9])', line)
         x = re.search(r'([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}', line)
@@ -41,7 +41,7 @@ def ipAdress():
 #Problem 3
 def latLong():
     file = open("../Files/Coords.txt" , "r")
-    
+
     print("----------------Match Initiating------------------")
 
     for line in file:
@@ -53,7 +53,7 @@ def latLong():
     file.close()
     print("----------------Match Finalizing------------------")
 
-    
+
 
 #Problem 4
 def licencePlate():
@@ -62,7 +62,7 @@ def licencePlate():
 
         print("----------------Match Initiating------------------")
         print(string + '\n')
-        
+
         pattern = r'([0-9]{4}-){3}([0-9]{4})|([0-9]{4}:){3}([0-9]{4})|([0-9]{4}\.\.\.){3}([0-9]{4})'
 
         pad = re.findall(pattern,string)
