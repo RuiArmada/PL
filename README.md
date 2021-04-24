@@ -1,5 +1,5 @@
 # 📜📜 PL 📜📜
-Python based exercises done in Language Processing class @ Minho University
+Python based exercises done in PL class @ Minho University
 
 ## Author
 * [Rui Filipe Pimenta Armada](https://github.com/RuiArmada)
