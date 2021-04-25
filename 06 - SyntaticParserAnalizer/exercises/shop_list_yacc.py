@@ -6,25 +6,40 @@ def p_grammar(p):
     """"
         list : categories
 
-        categories : category
-                   | categories category
+        categories : categories category
+        categories :
 
-        category : name ':' products
-
-        name : ID
+        category : ID ':' products
 
         products : product
-                 | products procuts
+        products : porducts product
+        
+        product : '-' cod_Product SEP name_Product SEP price SEP quantity ';'
+        
+        cod_Product : INT 
 
-        product : '*' INT ';' STR ';' FLOAT ';' INT
+        name_Product : ID
+
+        price : FLOAT
+
+        quantity : INT
     """
 
 def p_error(p):
+    parser.success = False
     print('Syntax ERROR')
 
 parser = yacc.yacc()
+parser.success = True
 
 import sys
 
+content = ""
+
 for line in sys.stdin:
-    parser.parse(line)
+    content += line
+
+parser.parse(line)
+
+if parser.success:
+    print('Parsing Complete')
