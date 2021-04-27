@@ -9,7 +9,7 @@ def p_grammar(p):
         categories : categories category
         categories :
 
-        category : ID ':' products
+        category : STR ':' products
 
         products : product
         products : porducts product
@@ -18,7 +18,7 @@ def p_grammar(p):
         
         cod_Product : INT 
 
-        name_Product : ID
+        name_Product : STR
 
         price : FLOAT
 
@@ -34,12 +34,8 @@ parser.success = True
 
 import sys
 
-content = ""
-
 for line in sys.stdin:
-    content += line
-
-parser.parse(line)
+    parser.parse(line)
 
 if parser.success:
     print('Parsing Complete')

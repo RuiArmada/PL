@@ -1,15 +1,15 @@
 import ply.lex as lex
 
 tokens = (
-    'ID',
-    'INT';
+    'STR',
+    'INT',
     'FLOAT',
     'SEP'
 )
 
 literals = ['-',',',':',';','*']
 
-t_ID = r'\w+'
+t_STR = r'\w+'
 t_SEP = r'::'
 
 

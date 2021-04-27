@@ -15,7 +15,7 @@ def p_categories_empty(p):
     p[0] = 0
 
 def p_category(p):
-    "category : ID ':' products"
+    "category : STR ':' products"
     p[0] = p[3]
 
 def p_products_product(p):
@@ -27,7 +27,7 @@ def p_products_products(p):
     p[0] = p[1] + p[2]
 
 def p_product(p):
-    "product : '-' INT SEP ID SEP FLOAT SEP INT ';'"
+    "product : '-' INT SEP STR SEP FLOAT SEP INT ';'"
     p[0] = p[6] * p[8]
 
 def p_error(p):
@@ -37,8 +37,5 @@ parser = yacc.yacc()
 
 import sys
 
-content = ""
-
 for line in sys.stdin:
-    content += line
-parser.parse(content)
+    parser.parse(content)

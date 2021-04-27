@@ -17,11 +17,11 @@ def p_categories_empty(p):
     p[0] = 0
 
 def p_category(p):
-    "category : ID ':' products"
+    "category : STR ':' products"
     p[0] = p[3]
     if p[1] in p.parser.categories:
         print('Notice: Multiple Categories: ' + p[1])
-    else
+    else:
         p.parser.categories.add(p[1])
 
 def p_products_product(p):
@@ -33,7 +33,7 @@ def p_products_products(p):
     p[0] = p[1] + p[2]
 
 def p_product(p):
-    "product : '-' INT SEP ID SEP FLOAT SEP INT ';'"
+    "product : '-' INT SEP STR SEP FLOAT SEP INT ';'"
     p[0] = p[6] * p[8]
     info = {
         'name' : p[4],
@@ -43,7 +43,7 @@ def p_product(p):
         if info == p.parser.products[p[2]]:
             print('Notice: Multiple Entries of Product: ', p[2])
         else:
-            print('ERROR! Diferent Products with the SAME ID: ', p[2])
+            print('ERROR! Diferent Products with the SAME identification: ', p[2])
     else:
         p.parser.products[p[2]] = info
 
@@ -55,8 +55,5 @@ parser = yacc.yacc()
 parser.categories = set()
 parser.products = set()
 
-content = ""
-
 for line in sys.stdin:
-    content += line
-parser.parse(content)
+    parser.parse(content)
