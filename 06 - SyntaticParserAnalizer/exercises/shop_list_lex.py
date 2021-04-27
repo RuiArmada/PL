@@ -2,14 +2,16 @@ import ply.lex as lex
 
 tokens = (
     'ID',
+    'INT';
     'FLOAT',
-    'INT',
-    'STR'
+    'SEP'
 )
 
-literals = [':',';','*']
+literals = ['-',',',':',';','*']
 
 t_ID = r'\w+'
+t_SEP = r'::'
+
 
 def t_STR(t):
     r'\"[^\"]+\"'
