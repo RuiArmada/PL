@@ -1,6 +1,6 @@
 BEBIDAS:
     * 1; "Cocal-Cola"; 1.00; 2
-    * 2; "Água"; 0.40; 1
+    * 2; "Agua"; 0.40; 1
 
 CARNE:
     * 3; "Bife de Vaca"; 7.99; 2

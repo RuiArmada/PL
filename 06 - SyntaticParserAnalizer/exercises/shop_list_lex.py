@@ -1,45 +1,36 @@
 import ply.lex as lex
 
 tokens = (
-    'STR',
-    'INT',
-    'FLOAT',
+    'ID',
+    'INT', 
+    'FLOAT', 
     'SEP'
-)
+    )
 
-literals = ['-',',',':',';','*']
+literals = ['-', ',', ':', ';']
 
-t_STR = r'\w+'
 t_SEP = r'::'
+t_ID = r'\w+'
 
-
-def t_STR(t):
-    r'\"[^\"]+\"'
-    t.value = t.value[1:-1]
 
 def t_FLOAT(t):
-    r'\d+\.\d+'
+    r'\d+.\d+'
     t.value = float(t.value)
     return t
+
 
 def t_INT(t):
     r'\d+'
     t.value = int(t.value)
     return t
 
+
 t_ignore = ' \n\t'
 
+
 def t_error(t):
-    print(f"'Illegal caracter {t.value[0]}'")
+    print(f'Illegal character: {t.value[0]}')
+    t.lexer.skip(1)
+
 
 lexer = lex.lex()
-
-file = open('../files/2Buy.txt')
-content = file.read()
-
-lexer.input(content)
-for tok in lexer:
-    print(tok)
-    pass
-
-file.close()
